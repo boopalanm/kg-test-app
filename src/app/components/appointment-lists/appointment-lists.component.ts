@@ -14,6 +14,7 @@ import { CommonService } from 'src/app/services/common/common.service';
 export class AppointmentListsComponent implements OnInit {
   displayedColumns: string[] = ['_id', 'patientname', 'contactphone',  'fromtime', 'totime', 'totalmins', 'status'];
   dataSource: MatTableDataSource<any>;
+  recordData: any[] =[];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -65,6 +66,7 @@ export class AppointmentListsComponent implements OnInit {
 
     this.commonService.getAppointments(latest_date, this._doctorId).subscribe((resp: any) => {
       console.log(resp);
+      this.recordData = resp.appointments;
       this.dataSource = new MatTableDataSource(resp.appointments);
     }, error => {
       console.log(error);
