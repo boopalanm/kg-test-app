@@ -1,0 +1,7 @@
+<div [formGroup]="myForm">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" [(ngModel)]="username" name="uname" [formControlName]='myFormControlName' class="form-control" (ngModelChange)="onChange($event)" [ngClass]="{ 'is-invalid': submitted && f.usernameOrigin.errors }">
+    <div *ngIf="submitted && f.usernameOrigin.errors" class="invalid-feedback">
+        <div *ngIf="f.usernameOrigin.errors.required">Username is required</div>
+    </div>
+</div>

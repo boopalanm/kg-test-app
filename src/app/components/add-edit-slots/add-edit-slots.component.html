@@ -1,0 +1,22 @@
+<div class="example-form">
+  <div class="session-header" *ngIf="inputData.sessiontype === 1">
+    <h3>Morning Slots <span>(9.00 AM to 12.00 PM) - {{inputData.date}}</span></h3>
+  </div>
+  <div class="session-header" *ngIf="inputData.sessiontype === 2">
+    <h3>Evening Slots <span>(5.00 PM to 9.00 PM) - {{inputData.date}}</span></h3>
+  </div>
+  <mat-form-field class="example-full-width">
+    <mat-label>From Time</mat-label>
+    <input matInput placeholder="09.00" value="" [(ngModel)]="fromtime" (click)="open($event, 'from')">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>To Time</mat-label>
+    <input matInput placeholder="10.00" value="" [(ngModel)]="totime" (click)="open($event, 'to')">
+  </mat-form-field>
+  <div class="session-button">
+    <p>
+      <button mat-raised-button color="primary" (click)="addTimeSlots()" class="button-add">Add Slots</button>
+      <button mat-raised-button color="primary" (click)="closeDialog()">Close</button>
+    </p>
+  </div>
+</div>

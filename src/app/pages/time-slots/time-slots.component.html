@@ -1,0 +1,58 @@
+<div class="timeslots">
+    <div class="header">
+        <div class="intro-header">
+            <h3>
+                Time Slots Management
+            </h3>
+            <p>Appointments / Time Slots</p>
+        </div>
+        <div class="go-back">
+            <p>
+                <button mat-raised-button  routerLink="/dashboard">Go Back</button>
+            </p>
+        </div>
+    </div>
+    <div class="content">
+        <div class="calender">
+            <app-fixed-datepicker (dateSelected)="onSelected($event)"></app-fixed-datepicker>
+        </div>
+        <div class="slots">
+            <div class="session-split">
+                <div class="session-header">
+                    <h3>Morning Slots <span>(9.00 AM to 12.00 PM)</span> - {{date | date}}</h3>
+                </div>
+                <div class="session-button">
+                   <p>
+                    <button mat-raised-button color="primary" (click)="openAddSlots(1)">Add Slots</button>
+                   </p> 
+                </div>
+            </div>
+            <mat-list *ngIf="timeslots">
+                <span *ngFor="let slot of timeslots;">
+                    <div *ngIf="slot.session === 1" class="time-slot-box">
+                        {{parseTime(slot.fromtime)}} to {{parseTime(slot.totime)}} 
+                    </div>
+                </span>
+                <!-- <mat-list-item> Salt </mat-list-item> -->
+                <!-- <mat-list-item> Paprika </mat-list-item> -->
+            </mat-list>
+            <div class="session-split">
+                <div class="session-header">
+                    <h3>Evening Slots <span>(5.00 PM to 9.00 PM)</span> - {{date | date}}</h3>
+                </div>
+                <div class="session-button">
+                   <p>
+                    <button mat-raised-button color="primary" (click)="openAddSlots(2)">Add Slots</button>
+                   </p>
+                </div>
+            </div>
+            <mat-list *ngIf="timeslots">
+                <span *ngFor="let slot of timeslots;">
+                    <div *ngIf="slot.session === 2" class="time-slot-box">
+                        {{parseTime(slot.fromtime)}} to {{parseTime(slot.totime)}} 
+                    </div>
+                </span>
+            </mat-list>
+        </div>
+    </div>
+</div>

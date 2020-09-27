@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+body{
+    padding: 0;
+    margin: 0;
+    font-family: "Open Sans"; 
+}
+img{
+    width: 100%;
+}
+.invalid-feedback{
+    color: red;
+}
+.dashboard{
+    .doctor-lists, .date-picker{
+        .mat-form-field-empty.mat-form-field-label, .mat-form-field-underline {
+            color: #ddd !important;
+        }
+        .mat-input-element {
+            color: #fafafa !important;
+        }
+    }
+}

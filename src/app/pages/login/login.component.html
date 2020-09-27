@@ -1,0 +1,22 @@
+<div class="login-page">
+  <div class="login-container">
+    <div class="flex-container">
+      <div class="form-container">
+        <div class="login-title">
+          <h2>Login</h2>
+        </div>
+        <div class="login-success" *ngIf="loginStatus">
+          Login Success <span (click)="loginStatus = !loginStatus;formInit()"><strong>Close</strong></span>
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="container">
+            <app-username  [group]="loginForm.controls['usernameField']" [myFormControlName]="'usernameOrigin'" [submitted]="submitted" (onValueChange)="onUsernameValue($event)"></app-username>
+            <div class="empty-height"></div>
+            <app-password  [group]="loginForm.controls['passwordField']" [myFormControlName]="'passwordOrigin'" [submitted]="submitted" (onValueChange)="onPasswordValue($event)"></app-password>
+          </div>
+          <app-login-button></app-login-button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="dashboard">
+    <div class="header">
+        <div class="intro-header">
+            <h3>
+                Patient Appointments
+            </h3>
+            <p>Dashboard / Appointments</p>
+        </div>
+        <div class="doctor-lists">
+            <app-doctors-dropdown [doctorId]="doctorid" (optionSelected)="onSelected($event)"></app-doctors-dropdown>
+        </div>
+        <div class="date-picker">
+            <app-datepicker (dateSelected)="ondateChanged($event)"></app-datepicker>
+        </div>
+        <div class="add-slots">
+            <button mat-raised-button (click)="goTotimeslots()">Time Slots</button>
+        </div>
+    </div>
+    <div class="content">
+        <app-appointment-lists [date]="date" [doctorId]="doctorid"></app-appointment-lists>
+    </div>
+</div>
